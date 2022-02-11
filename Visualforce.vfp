@@ -1,0 +1,30 @@
+// Form Component
+ <apex:pageBlock title="Create Message">
+	<apex:form >
+		<apex:outputLabel >Subject:</apex:outputLabel>
+		<apex:inputText value="{!message}"/>
+		<apex:outputLabel style="margin-left:30px;">Body:</apex:outputLabel>
+		<apex:inputText value="{!description}"/>
+		<apex:outputLabel style="margin-left:30px;">Account:</apex:outputLabel>
+		<apex:selectList value="{!accountId}" size="1" multiselect="false">
+			<apex:selectOptions value="{!Accounts}"/>
+		</apex:selectList>
+		<apex:commandButton action="{!SaveMessage}" value="save"/>
+	</apex:form>
+</apex:pageBlock>
+
+// Table Component
+<apex:pageBlock title="Messages" id="messages">
+	<apex:pageBlockTable value="{!Messages}" var="m">
+		<apex:column headerValue="Message" width="20%">
+			<apex:outputLink value="/{!m.Id}">{!m.Name}</apex:outputLink>
+		</apex:column>
+		<apex:column headerValue="Acount" width="20%">
+			<apex:outputText value="{!m.Account__r.Name}"/>
+		</apex:column>
+		<apex:column headerValue="Description">
+			<apex:outputText value="{!m.Description__c}"/>
+		</apex:column>
+	</apex:pageBlockTable>
+</apex:pageBlock>
+
