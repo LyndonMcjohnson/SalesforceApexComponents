@@ -1,3 +1,4 @@
+```visualforce
 // Form Component
  <apex:pageBlock title="Create Message">
 	<apex:form >
@@ -27,4 +28,4 @@
 		</apex:column>
 	</apex:pageBlockTable>
 </apex:pageBlock>
-
+```
